@@ -1,0 +1,8 @@
+kafka是一个分布式消息发布订阅系统。它最初由linkedin公司基于独特的设计实现为一个分布式的提交日志系统，之后成为apache项目的一部分。Kafka系统快速、可扩展并且可持久化。它的分区特性，可复制和可容错都是其不错的特性。
+Kafka使用的基本术语：
+	Topic：kafka将消息种子分门别类，每一类的消息称之为topic
+	Producer：发布消息的对象称之为话题生产者
+	Consumer：订阅消息并处理发布的消息的种子的对象称之为话题消费者
+	Broker：已发布的消息保存在一组服务器中，称之为kafka集群。集群中的每一个服务器都是一个代理（broker），消费者可以订阅一个或者多个topic，并从broker中拉取数据，从而消费这些已发布的消息
+	Partition：topic物理上的分组，每一个topic可以有多个partition，partition是为了提高kafka系统的并发能力，每一个partition是一个有序的队列，partition中的每一条消息都会被分配一个有序的id（offset），kafka只保证按一个partition中的顺序将消息发送给consumer，并不保证同一topic不同partition的顺序，消息发送到哪个分区上有两种基本策略：一是采用key hash算法，一是采用round robin算法
+	Offset：消息的偏移量
